@@ -1,0 +1,26 @@
+galaxy_info:
+  author: Stefan Horning
+  description: Role to install and setup Graylog on Ubuntu server
+  company: Mediapeers GmbH
+  license: BSD
+  min_ansible_version: 1.8
+  github_branch: master
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - all
+
+  galaxy_tags:
+    - graylog
+    - gelf
+    - logging
+    - elasticsearch
+    - infrastructure
+    - server
+    - centralized-logging
+    - java
+    - mongo
+
+dependencies:
+  - mediapeers.elasticsearch
