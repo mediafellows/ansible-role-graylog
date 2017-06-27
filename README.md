@@ -30,6 +30,7 @@ Example Playbook with minimal set of required parameters:
         graylog_root_username: graylog
         graylog_root_password_sha2: asdccsd3123
         graylog_root_user_email: graylog@email.com
+        graylog_public_hostname: 'https://dummy-hostname.com'
       roles:
          - mediapeers.graylog
 

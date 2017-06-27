@@ -136,7 +136,7 @@ web_listen_uri = http://0.0.0.0:9000/
 
 # Web interface endpoint URI. This setting can be overriden on a per-request basis with the X-Graylog-Server-URL header.
 # Default: $rest_transport_uri
-#web_endpoint_uri =
+web_endpoint_uri = {{ graylog_public_hostname }}:9000/api/
 
 # Enable CORS headers for the web interface. This is necessary for JS-clients accessing the server directly.
 # If these are disabled, modern browsers will not be able to retrieve resources from the server.
@@ -281,7 +281,7 @@ elasticsearch_max_docs_per_index = 20000000
 #
 # ATTENTION: These settings have been moved to the database in 2.0. When you upgrade, make sure to set these
 #            to your previous 1.x settings so they will be migrated to the database!
-elasticsearch_max_number_of_indices = 20
+elasticsearch_max_number_of_indices = 10
 
 # Decide what happens with the oldest indices when the maximum number of indices is reached.
 # The following strategies are availble:

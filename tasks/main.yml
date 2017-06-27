@@ -12,12 +12,12 @@
 
 - name: Install MongoDB and Graylog packages
   apt:
-    name: "{{item}}"
+    name: "{{ item }}"
     state: latest
     update_cache: yes
-    with_items:
-      - mongodb
-      - graylog-server
+  with_items:
+    - mongodb
+    - graylog-server
 
 - name: Add Graylog server config
   template:
@@ -27,7 +27,7 @@
 
 - name: Copy graylog extra plugins into plugin dir to be loaded on graylog start
   get_url:
-    src: "{{ item }}"
+    url: "{{ item }}"
     dest: "{{ graylog_plugin_dir }}/"
   with_items: "{{ graylog_custom_plugins }}"
   notify: restart graylog-server

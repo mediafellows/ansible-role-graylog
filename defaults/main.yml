@@ -4,6 +4,9 @@
 graylog_major_version: 2.3
 graylog_root_username: admin
 graylog_root_user_email: dummy@test.com
+# Set hostname to what's publicly exposed, without port and path (already part of template)
+# but include http / https as those can differ:
+graylog_public_hostname: 'https://my-dummy-domin.com'
 graylog_custom_plugins:
   - 'https://github.com/graylog-labs/graylog-plugin-slack/releases/download/2.4.0/graylog-plugin-slack-2.4.0.jar'
 
@@ -19,7 +22,6 @@ elasticsearch_version: 2.3.3 # make sure version is compatible with graylog_majo
 
 # JVM heap size, should be about half of the instances RAM:
 elasticsearch_heap_size: 8g
-elasticsearch_plugin_aws_version: 2.7.1
 # Settings you probably don't need to change:
 elasticsearch_service_startonboot: yes
 elasticsearch_apt_java_package: oracle-java8-installer
