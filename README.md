@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/mediapeers/ansible-role-graylog.svg?branch=master)](https://travis-ci.org/mediapeers/ansible-role-graylog)
+
 # Graylog role
 
 Ansible role to install and setup Graylog 2 server. Also installs dependencies such as ElasticSearch and MongoDB.

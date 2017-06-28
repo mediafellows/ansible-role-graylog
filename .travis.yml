@@ -20,6 +20,14 @@ install:
   # Add ansible.cfg to pick up roles path.
   - "{ echo '[defaults]'; echo 'roles_path = ../'; } >> ansible.cfg"
 
+  # Add role dependency (mediapeers.elasticsearch)
+  - wget -O mediapeers.elasticsearch.zip https://github.com/mediapeers/ansible-role-elasticsearch/archive/master.zip && unzip mediapeers.elasticsearch.zip
+  - rm mediapeers.elasticsearch.zip
+  - mv ansible-role-elasticsearch-master tests/roles/mediapeers.elasticsearch
+
+  # Debug output
+  - ls tests/roles
+
 script:
   # Check the role/playbook's syntax.
   - "ansible-playbook -i tests/inventory tests/$SITE --syntax-check"
