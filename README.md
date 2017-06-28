@@ -17,7 +17,7 @@ Those variables have to be set:
 - `graylog_root_username: graylog` - Set your own dmin username for Graylog login
 - `graylog_root_password_sha2: asdccsd3123` - Set your own admin PW for Graylog login
 - `graylog_root_user_email: graylog@email.com` - Set admin users email
-- `graylog_public_hostname: 'https://dummy-hostname.com:9000/api/'` - Set this to the publicly reachable API endpoint
+- `graylog_public_api_endpoint: 'https://my-dummy-domin.com:9000/api/'` - Set this to the publicly reachable API endpoint
 
 Those variables can be overriden optionally:
 - `graylog_major_version: 2.3`
