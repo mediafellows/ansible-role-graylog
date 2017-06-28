@@ -1,5 +1,7 @@
 ---
 - hosts: localhost
   become: true
+  vars:
+    elasticsearch_heap_size: 500m
   roles:
     - ansible-role-graylog
