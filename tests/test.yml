@@ -3,6 +3,8 @@
   become: true
   vars:
     graylog_password_salt: Ef6VNDuQYJZ2fOIgNkjXJLkdHzZXAhDuEMefjwsbZbzQArQcX69RTBqDL8XesZxotg2mZCdlzF8qXdipOBaUUbQjNsY3uLTS
+    graylog_root_username: admin
+    graylog_root_password_sha2: 6ca13d52ca70c883e0f0bb101e425a89e8624de51db2d2392593af6a84118090
     elasticsearch_heap_size: 500m
   roles:
     - ansible-role-graylog
