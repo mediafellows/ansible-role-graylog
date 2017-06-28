@@ -47,5 +47,6 @@ script:
 
   # Test if Graylog is reachable
   - curl 'http://localhost:9000/api/'
+  - cat /var/log/graylog-server/server.log
   # Run serverspec
   - rake spec
