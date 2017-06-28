@@ -36,6 +36,6 @@ describe "Graylog setup" do
   end
 
   describe port(3000) do
-#    it { should be_listening.with('tcp') }
+    it { should be_listening.with('tcp') }
   end
 end
