@@ -46,8 +46,7 @@ script:
     || (echo 'Idempotence test: fail' && exit 1)
 
   # Test if Graylog is reachable
-  - sleep 10
-  - tail /var/log/graylog-server/server.log
-  - curl 'http://localhost:9000/api/'
+  - sleep 12
+  - tail -n 15 /var/log/graylog-server/server.log
   # Run serverspec
   - rake spec
