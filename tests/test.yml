@@ -2,6 +2,7 @@
 - hosts: localhost
   become: true
   vars:
+    graylog_password_salt: Ef6VNDuQYJZ2fOIgNkjXJLkdHzZXAhDuEMefjwsbZbzQArQcX69RTBqDL8XesZxotg2mZCdlzF8qXdipOBaUUbQjNsY3uLTS
     elasticsearch_heap_size: 500m
   roles:
     - ansible-role-graylog
