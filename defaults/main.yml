@@ -1,32 +1,28 @@
 ---
 # defaults file for mediapeers.graylog
 
-graylog_major_version: 2.3
 graylog_root_username: admin
-graylog_root_user_email: dummy@test.com
+graylog_root_user_email: ""
 # Set endpoint to how the Graylog API is publicly exposed:
 graylog_public_api_endpoint: 'https://my-dummy-domin.com:9000/api/'
 graylog_custom_plugins:
   - 'https://github.com/graylog-labs/graylog-plugin-slack/releases/download/2.4.0/graylog-plugin-slack-2.4.0.jar'
-
 graylog_plugin_dir: /usr/share/graylog-server/plugin
+graylog_major_version: 2.3
 
 # Variables being passed on to the Elasticsearch role:
-
 elasticsearch_cluster_name: graylog
-
 elasticsearch_version: 2.3.3 # make sure version is compatible with graylog_major_version,
 # see restrictions here: https://github.com/Graylog2/graylog2-server/blob/1.1.6/graylog2-server/src/main/java/org/graylog2/initializers/IndexerSetupService.java#L61-L62
 # Make sure git tag matches installed graylog version, check with `java -jar /usr/share/graylog-server/graylog.jar version`
 
 # JVM heap size, should be about half of the instances RAM:
 elasticsearch_heap_size: 2g
+
 # Settings you probably don't need to change:
 elasticsearch_service_startonboot: yes
 elasticsearch_apt_java_package: oracle-java8-installer
 elasticsearch_data_dir: /var/lib/graylog2/elasticsearch/data
-elasticsearch_plugins:
-  - { name: 'hq', url: 'royrusso/elasticsearch-HQ' } # Mgmt Webinterface
 elasticsearch_network_bind_host: 127.0.0.1
 elasticsearch_network_publish_host: 127.0.0.1
 elasticsearch_network_host: 127.0.0.1
