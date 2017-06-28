@@ -35,7 +35,7 @@ describe "Graylog setup" do
     its(:content) { should include('plugin_dir = /usr/share/graylog-server/plugin') }
   end
 
-  describe port(3000) do
+  describe port(9000) do
     it { should be_listening.with('tcp') }
   end
 end
