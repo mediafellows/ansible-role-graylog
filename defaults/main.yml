@@ -10,6 +10,10 @@ graylog_custom_plugins:
 graylog_plugin_dir: /usr/share/graylog-server/plugin
 graylog_major_version: 2.3
 
+# How many indeces to keep before deleting them, as we have 1 index per week
+# it equals weeks of log retention:
+graylog_retention_weeks: 6
+
 # Variables being passed on to the Elasticsearch role:
 elasticsearch_cluster_name: graylog
 elasticsearch_version: 2.3.3 # make sure version is compatible with graylog_major_version,
