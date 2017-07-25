@@ -16,9 +16,8 @@ graylog_retention_weeks: 6
 
 # Variables being passed on to the Elasticsearch role:
 elasticsearch_cluster_name: graylog
-elasticsearch_version: 2.3.3 # make sure version is compatible with graylog_major_version,
-# see restrictions here: https://github.com/Graylog2/graylog2-server/blob/1.1.6/graylog2-server/src/main/java/org/graylog2/initializers/IndexerSetupService.java#L61-L62
-# Make sure git tag matches installed graylog version, check with `java -jar /usr/share/graylog-server/graylog.jar version`
+elasticsearch_version: 2.4.5 # make sure version is compatible with graylog_major_version,
+# see list here http://docs.graylog.org/en/2.2/pages/configuration/elasticsearch.html#elasticsearch-versions
 
 # JVM heap size, should be about half of the instances RAM:
 elasticsearch_heap_size: 2g
