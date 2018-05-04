@@ -5,10 +5,12 @@
   get_url:
     url: "https://packages.graylog2.org/repo/packages/graylog-{{graylog_major_version}}-repository_latest.deb"
     dest: /root/graylog-repo.deb
+    force: yes
 
 - name: Install Graylog Repo
   apt:
     deb: /root/graylog-repo.deb
+    state: present
 
 - name: Install MongoDB and Graylog packages
   apt:
