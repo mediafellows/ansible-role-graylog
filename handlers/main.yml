@@ -15,3 +15,8 @@
   service:
     name: graylog-server
     state: stopped
+
+- name: restart mongodb
+  service:
+    name: mongodb
+    state: restarted

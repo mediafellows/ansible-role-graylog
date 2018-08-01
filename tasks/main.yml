@@ -12,14 +12,18 @@
     deb: /root/graylog-repo.deb
     state: present
 
-- name: Install MongoDB and Graylog packages
+- name: Install MongoDB (needed as Graylog settings DB)
   apt:
-    name: "{{ item }}"
+    name: mongodb
     state: latest
     update_cache: yes
-  with_items:
-    - mongodb
-    - graylog-server
+  notify: restart mongodb
+
+- name: Install Graylog server
+  apt:
+    name: graylog-server
+    state: latest
+  notify: restart graylog-server
 
 - name: Add Graylog server config
   template:
