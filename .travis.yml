@@ -4,7 +4,7 @@ dist: trusty
 group: deprecated-2017Q2
 
 language: python
-python: "2.7"
+python: "3.5"
 
 env:
   - SITE=test.yml
