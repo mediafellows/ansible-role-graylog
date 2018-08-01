@@ -16,7 +16,7 @@ before_install:
 install:
   - which python
   - which pip
-  - ls /home/travis/virtualenv/python3.5.5/lib/
+  - ls /home/travis/virtualenv/python3.5.5/lib/python3.5
   - ruby -v
   - gem install serverspec
   - pip3 install -U setuptools
