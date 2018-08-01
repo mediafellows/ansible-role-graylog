@@ -10,12 +10,13 @@ env:
 
 before_install:
   - sudo apt-get update -qq
+  - sudo apt-get install python3-apt python-apt-common
 
 install:
   - which python
   - ruby -v
   - gem install serverspec
-  - pip3 install -U setuptools python3-apt
+  - pip3 install -U setuptools
   # Install Ansible.
   - pip3 install ansible
   - ansible --version
