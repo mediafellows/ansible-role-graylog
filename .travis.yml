@@ -7,7 +7,7 @@ python: 3.5
 
 env:
   # use global python libs in virtualenv too:
-  - PYTHONPATH="/usr/lib/python3/dist-packages:/usr/lib/python3.5:/usr/lib/python2.7/dist-packages:/usr/lib/python2.7"
+  - PYTHONPATH="/usr/lib/python3/dist-packages:/usr/lib/python3.5"
 
 before_install:
   - sudo apt-get update -qq
@@ -17,9 +17,9 @@ install:
   - which python
   - ruby -v
   - gem install serverspec
-  - pip install -U setuptools
+  - pip3 install -U setuptools
   # Install Ansible.
-  - pip install ansible
+  - pip3 install ansible
   - ansible --version
 
   # Add ansible.cfg to pick up roles path.
