@@ -16,7 +16,7 @@ install:
   - which python
   - ruby -v
   - gem install serverspec
-  - pip3 install -U setuptools
+  - pip3 install -U setuptools python-apt
   # Install Ansible.
   - pip3 install ansible
   - ansible --version
