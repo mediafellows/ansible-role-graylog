@@ -1,10 +1,9 @@
 ---
 sudo: required
 dist: trusty
-group: deprecated-2017Q2
 
 language: python
-python: "3.5"
+python: 3.5
 
 env:
   - SITE=test.yml
@@ -16,7 +15,7 @@ install:
   - which python
   - ruby -v
   - gem install serverspec
-  - pip3 install -U setuptools python-apt
+  - pip3 install -U setuptools python3-apt
   # Install Ansible.
   - pip3 install ansible
   - ansible --version
