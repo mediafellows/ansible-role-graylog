@@ -15,9 +15,9 @@ before_install:
 install:
   - ruby -v
   - gem install serverspec
-  - pip install -U setuptools
+  - pip3 install -U setuptools
   # Install Ansible.
-  - pip install ansible
+  - pip3 install ansible
   - ansible --version
 
   # Add ansible.cfg to pick up roles path.
