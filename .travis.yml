@@ -14,10 +14,10 @@ before_install:
 install:
   - which python
   - which pip
-  #- $(which pip) install apt
+  - $(which pip) install python-apt
   - ruby -v
   - gem install serverspec
-  - pip3 install -U setuptools apt
+  - pip3 install -U setuptools
   # Install Ansible.
   - pip3 install ansible
   - ansible --version
