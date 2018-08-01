@@ -10,11 +10,13 @@ env:
 
 before_install:
   - sudo apt-get update -qq
+  - sudo apt-get install -y python3-apt
+  - ls /usr/lib/python3/dist-packages/apt/
 
 install:
   - which python
   - which pip
-  - $(which pip) install python-apt
+  - ls /home/travis/virtualenv/python3.5.5/lib/
   - ruby -v
   - gem install serverspec
   - pip3 install -U setuptools
