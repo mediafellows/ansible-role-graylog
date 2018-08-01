@@ -15,6 +15,7 @@ before_install:
 install:
   - ruby -v
   - gem install serverspec
+  - pip install -U setuptools
   # Install Ansible.
   - pip install ansible
   - ansible --version
