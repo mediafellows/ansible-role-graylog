@@ -9,8 +9,8 @@ before_install:
   - sudo apt-get update -qq
 
 install:
+  - apt-get install python-apt
   - which python
-  - python --version
   - ruby --version
   - gem install serverspec
   - pip3 install -U setuptools
