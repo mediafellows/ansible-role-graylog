@@ -9,7 +9,7 @@ before_install:
   - sudo apt-get update -qq
 
 install:
-  - apt-get install python-apt
+  - sudo apt-get install python-apt
   - which python
   - ruby --version
   - gem install serverspec
