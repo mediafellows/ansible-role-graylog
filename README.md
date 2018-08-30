@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mediapeers/ansible-role-graylog.svg?branch=master)](https://travis-ci.org/mediapeers/ansible-role-graylog)
+[![Build Status](https://travis-ci.com/mediapeers/ansible-role-graylog.svg?branch=master)](https://travis-ci.com/mediapeers/ansible-role-graylog)
 
 # Graylog role
 
