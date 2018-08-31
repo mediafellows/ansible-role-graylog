@@ -1,21 +1,21 @@
 ---
 sudo: required
 dist: xenial
-
-language: python
-python: 3.5
+# Install our own python
+language: shell
 
 before_install:
   - sudo apt-get update -qq
 
 install:
-  - sudo apt-get install python-apt
-  - which python
+  # Install serverspec gem for tests
   - ruby --version
   - gem install serverspec
-  - pip3 install -U setuptools
+
   # Install Ansible.
-  - pip3 install ansible
+  - sudo apt-get install -y python-pip python-dev
+  - python --version
+  - sudo -H pip install ansible
   - ansible --version
 
   # Add ansible.cfg to pick up roles path.
@@ -48,3 +48,6 @@ script:
   - tail -n 15 /var/log/graylog-server/server.log
   # Run serverspec
   - rake spec
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/
