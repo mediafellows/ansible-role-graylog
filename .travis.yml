@@ -36,16 +36,16 @@ script:
   - "ansible-playbook -i tests/inventory tests/test.yml --connection=local"
 
   # Run the role/playbook again, checking to make sure it's idempotent.
-  # Allow 4 'changes' for status checks.
+  # Allow 1 'change' for a status check.
   - >
     ansible-playbook -i tests/inventory tests/test.yml --connection=local
-#    | grep -q 'changed=4.*failed=0'
-#    && (echo 'Idempotence test: pass' && exit 0)
-#    || (echo 'Idempotence test: fail' && exit 1)
+    | grep -q 'changed=1.*failed=0'
+    && (echo 'Idempotence test: pass' && exit 0)
+    || (echo 'Idempotence test: fail' && exit 1)
 
   # Test if Graylog is reachable
-  - sleep 12
-  - tail -n 15 /var/log/graylog-server/server.log
+  - sleep 15
+  - tail -n 10 /var/log/graylog-server/server.log
   # Run serverspec
   - rake spec
 
