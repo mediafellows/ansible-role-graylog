@@ -25,10 +25,18 @@
     state: latest
   notify: restart graylog-server
 
-- name: Add Graylog server config
+- name: Add Graylog server config for versions < 3
   template:
     src: server.conf.j2
     dest: /etc/graylog/server/server.conf
+  when: graylog_major_version is version('3.0', '<')
+  notify: restart graylog-server
+
+- name: Add Graylog server config for versions >= 3
+  template:
+    src: server-3.conf.j2
+    dest: /etc/graylog/server/server.conf
+  when: graylog_major_version is version('3.0', '>=')
   notify: restart graylog-server
 
 - name: Copy graylog extra plugins into plugin dir to be loaded on graylog start
