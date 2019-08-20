@@ -8,27 +8,22 @@
 # For example, \u002c.
 #
 # * Entries are generally expected to be a single line of the form, one of the following:
-#
-# propertyName=propertyValue
-# propertyName:propertyValue
+#   propertyName=propertyValue
+#   propertyName:propertyValue
 #
 # * White space that appears between the property name and property value is ignored,
 #   so the following are equivalent:
-#
-# name=Stephen
-# name = Stephen
+#   name=Stephen
+#   name = Stephen
 #
 # * White space at the beginning of the line is also ignored.
-#
 # * Lines that start with the comment characters ! or # are ignored. Blank lines are also ignored.
-#
 # * The property value is generally terminated by the end of the line. White space following the
 #   property value is not ignored, and is treated as part of the property value.
-#
 # * A property value can span several lines if each line is terminated by a backslash (‘\’) character.
 #   For example:
 #
-# targetCities=\
+#   targetCities=\
 #         Detroit,\
 #         Chicago,\
 #         Los Angeles
@@ -36,11 +31,12 @@
 #   This is equivalent to targetCities=Detroit,Chicago,Los Angeles (white space at the beginning of lines is ignored).
 #
 # * The characters newline, carriage return, and tab can be inserted with characters \n, \r, and \t, respectively.
-#
 # * The backslash character must be escaped as a double backslash. For example:
-#
-# path=c:\\docs\\doc1
-#
+#   path=c:\\docs\\doc1
+
+################
+# Basic settings
+################
 
 # If you are running more than one instances of Graylog server you have to select one of these
 # instances as master. The master will perform some periodical tasks that non-masters won't perform.
@@ -152,30 +148,13 @@ http_external_uri = {{ graylog_public_uri }}
 # The size of the thread pool used exclusively for serving the HTTP interface.
 #http_thread_pool_size = 16
 
-################
-# HTTPS settings
-################
-
-#### Enable HTTPS support for the HTTP interface
-#
-# This secures the communication with the HTTP interface with TLS to prevent request forgery and eavesdropping.
-#
-# Default: false
-#http_enable_tls = true
-
-# The X.509 certificate chain file in PEM format to use for securing the HTTP interface.
-#http_tls_cert_file = /path/to/graylog.crt
-
-# The PKCS#8 private key file in PEM format to use for securing the HTTP interface.
-#http_tls_key_file = /path/to/graylog.key
-
-# The password to unlock the private key used for securing the HTTP interface.
-#http_tls_key_password = secret
-
-
 # Comma separated list of trusted proxies that are allowed to set the client address with X-Forwarded-For
 # header. May be subnets, or hosts.
 #trusted_proxies = 127.0.0.1/32, 0:0:0:0:0:0:0:1/128
+
+#########################
+# ElasticSearch settings
+########################
 
 # List of Elasticsearch hosts Graylog should connect to.
 # Need to be specified as a comma-separated list of valid URIs for the http ports of your elasticsearch nodes.
@@ -240,6 +219,10 @@ http_external_uri = {{ graylog_public_uri }}
 #
 # Default: false
 #elasticsearch_compression_enabled = true
+
+####################
+# Retention settings
+####################
 
 # Graylog will use multiple indices to store documents in. You can configured the strategy it uses to determine
 # when to rotate the currently active write index.
@@ -515,6 +498,10 @@ lb_recognition_period_seconds = 3
 # Time in milliseconds which Graylog is waiting for all threads to stop on shutdown.
 #shutdown_timeout = 30000
 
+##################
+# MongoDB settings
+##################
+
 # MongoDB connection string
 # See https://docs.mongodb.com/manual/reference/connection-string/ for details
 mongodb_uri = mongodb://localhost/graylog
@@ -536,6 +523,9 @@ mongodb_max_connections = 1000
 # http://api.mongodb.com/java/current/com/mongodb/MongoOptions.html#threadsAllowedToBlockForConnectionMultiplier
 mongodb_threads_allowed_to_block_multiplier = 5
 
+################
+# Email settings
+################
 
 # Email transport
 #transport_email_enabled = false
@@ -559,10 +549,13 @@ mongodb_threads_allowed_to_block_multiplier = 5
 # This is deprecated on most SMTP services!
 #transport_email_use_ssl = false
 
-
 # Specify and uncomment this if you want to include links to the stream in your stream alert mails.
 # This should define the fully qualified base url to your web interface exactly the same way as it is accessed by your users.
 #transport_email_web_interface_url = https://graylog.example.com
+
+##############################
+# Connection & tuning settings
+##############################
 
 # The default connect timeout for outgoing HTTP connections.
 # Values must be a positive duration (and between 1 and 2147483647 when converted to milliseconds).
