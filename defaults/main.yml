@@ -11,7 +11,7 @@ graylog_public_api_endpoint: 'https://my-dummy-domin.com:9000/api/'
 graylog_public_uri: 'https://my-dummy-domain.com/'
 
 graylog_custom_plugins:
-  - 'https://github.com/graylog-labs/graylog-plugin-slack/releases/download/2.4.0/graylog-plugin-slack-2.4.0.jar'
+  - 'https://github.com/sportalliance/graylog-plugin-slack-notification/releases/download/1.0.1/graylog-plugin-slack-notification-1.0.1.jar'
 graylog_plugin_dir: /usr/share/graylog-server/plugin
 graylog_major_version: 2.5
 
