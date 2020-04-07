@@ -1,5 +1,5 @@
 ---
-# defaults file for mediapeers.graylog
+# defaults file for mediafellows.graylog
 
 graylog_root_username: admin
 graylog_root_user_email: ""

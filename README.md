@@ -1,10 +1,10 @@
-[![Build Status](https://travis-ci.com/mediapeers/ansible-role-graylog.svg?branch=master)](https://travis-ci.com/mediapeers/ansible-role-graylog)
+[![Build Status](https://travis-ci.com/mediafellows/ansible-role-graylog.svg?branch=master)](https://travis-ci.com/mediafellows/ansible-role-graylog)
 
 # Graylog role
 
 Ansible role to install and setup Graylog 2 server. Also installs dependencies such as ElasticSearch and MongoDB.
 
-Uses [Mediapeers' ElasticSearch role](https://github.com/mediapeers/ansible-role-elasticsearch) to install ElasticSearch.
+Uses [Mediafellows' ElasticSearch role](https://github.com/mediafellows/ansible-role-elasticsearch) to install ElasticSearch.
 
 ## Requirements
 
@@ -30,7 +30,7 @@ Those variables can be overriden optionally (come with acceptable defaults):
 
 ## Dependencies
 
-Depends on the ElasticSearch Ansible role `mediapeers.elasticsearch`. Make sure that role installed in your Ansible project first.
+Depends on the ElasticSearch Ansible role `mediafellows.elasticsearch`. Make sure that role installed in your Ansible project first.
 
 ## Example Playbook
 
@@ -44,7 +44,7 @@ Example Playbook with minimal set of required parameters:
         graylog_root_user_email: graylog@email.com
         graylog_public_hostname: 'https://dummy-hostname.com'
       roles:
-         - mediapeers.graylog
+         - mediafellows.graylog
 
 ## License
 
@@ -52,4 +52,4 @@ BSD
 
 ## Author Information
 
-Stefan Horning <horning@mediapeers.com>
+Stefan Horning <stefan.horning@mediafellows.com>

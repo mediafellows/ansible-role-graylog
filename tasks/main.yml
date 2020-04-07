@@ -1,5 +1,5 @@
 ---
-# tasks file for mediapeers.graylog
+# tasks file for mediafellows.graylog
 
 - name: Download Graylog Repo Deb
   get_url:
