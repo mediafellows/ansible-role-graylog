@@ -4,11 +4,16 @@
 graylog_root_username: admin
 graylog_root_user_email: ""
 
+graylog_listen_port: 9000
+
 # Set endpoint to how the Graylog API is publicly exposed:
 # for versions < 3.0
 graylog_public_api_endpoint: 'https://my-dummy-domin.com:9000/api/'
 # for versions >= 3.0
 graylog_public_uri: 'https://my-dummy-domain.com/'
+
+# Local/Public address and port combo
+graylog_bind_address: '127.0.0.1:{{ graylog_listen_port}}'
 
 graylog_custom_plugins:
   - 'https://github.com/sportalliance/graylog-plugin-slack-notification/releases/download/1.0.1/graylog-plugin-slack-notification-1.0.1.jar'
@@ -34,3 +39,4 @@ elasticsearch_data_dir: /var/lib/graylog2/elasticsearch/data
 elasticsearch_network_bind_host: 127.0.0.1
 elasticsearch_network_publish_host: 127.0.0.1
 elasticsearch_network_host: 127.0.0.1
+elasticsearch_network_http_port: 9200

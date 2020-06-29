@@ -96,7 +96,8 @@ plugin_dir = {{ graylog_plugin_dir }}
 # If the port is omitted, Graylog will use port 9000 by default.
 #
 # Default: 127.0.0.1:9000
-#http_bind_address = 127.0.0.1:9000
+
+http_bind_address = {{ graylog_bind_address }}
 #http_bind_address = [2001:db8::1]:9000
 
 #### HTTP publish URI
@@ -162,7 +163,7 @@ http_external_uri = {{ graylog_public_uri }}
 # requires authentication.
 #
 # Default: http://127.0.0.1:9200
-#elasticsearch_hosts = http://node1:9200,http://user:password@node2:19200
+elasticsearch_hosts = 'http://{{ elasticsearch_network_publish_host }}:{{ elasticsearch_network_http_port }}'
 
 # Maximum amount of time to wait for successfull connection to Elasticsearch HTTP port.
 #
