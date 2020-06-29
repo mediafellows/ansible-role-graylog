@@ -163,7 +163,7 @@ http_external_uri = {{ graylog_public_uri }}
 # requires authentication.
 #
 # Default: http://127.0.0.1:9200
-elasticsearch_hosts = 'http://{{ elasticsearch_network_publish_host }}:{{ elasticsearch_network_http_port }}'
+elasticsearch_hosts = http://{{ elasticsearch_network_publish_host }}:{{ elasticsearch_network_http_port }}
 
 # Maximum amount of time to wait for successfull connection to Elasticsearch HTTP port.
 #
