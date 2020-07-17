@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: graylog
   author: Stefan Horning
   description: Role to install and setup Graylog on Ubuntu server
   company: Mediapeers GmbH
