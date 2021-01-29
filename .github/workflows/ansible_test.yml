@@ -51,7 +51,7 @@ jobs:
         run: "ansible-playbook -i tests/inventory tests/test.yml | grep -q 'changed=1.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
 
       - name: Setup serverspec (install gem)
-        run: gem install serverspec
+        run: sudo gem install serverspec
 
       - name: Test if Graylog is reachable
         run: |
