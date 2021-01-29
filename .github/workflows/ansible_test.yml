@@ -16,6 +16,11 @@ jobs:
         with:
           python-version: 3.8
 
+      - name: Clean instance from any mongodb package as this Ansible role will install one itself
+        run: |
+          sudo apt-get -y purge mongodb mongodb-server mongodb-server-core mongodb-clients mongodb-org
+          sudo apt-get -y autoremove
+
       - name: Install latest Ansible through pip
         run: pip install ansible
 
