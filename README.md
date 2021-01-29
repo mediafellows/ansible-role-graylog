@@ -1,4 +1,4 @@
-[]()
+[![Ansible-Test](https://github.com/mediafellows/ansible-role-graylog/workflows/Ansible-Test/badge.svg)](https://github.com/mediafellows/ansible-role-graylog/actions?query=workflow%3AAnsible-Test)
 
 # Graylog role
 
