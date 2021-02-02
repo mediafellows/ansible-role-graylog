@@ -53,10 +53,13 @@ jobs:
       - name: Setup serverspec (install gem)
         run: sudo gem install serverspec
 
-      - name: Test if Graylog is reachable
+      - name: Wait until Graylog is reachable and show log output to verify
         run: |
           sleep 15
           tail -n 10 /var/log/graylog-server/server.log
+
+      - name: Check if Graylog port is open
+        run: ss -tnl4
 
       - name: Run serverspec
         run: rake spec
