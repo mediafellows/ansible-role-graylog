@@ -58,6 +58,9 @@ jobs:
           sleep 15
           tail -n 10 /var/log/graylog-server/server.log
 
+      - name: Curl Graylog http endpoint
+        run: curl --silent http://localhost:900/api/
+
       - name: Check if Graylog port is open
         run: ss -tnl4
 
