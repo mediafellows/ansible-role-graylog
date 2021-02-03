@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/mediafellows/ansible-role-graylog.svg?branch=master)](https://travis-ci.com/mediafellows/ansible-role-graylog)
+[![Ansible-Test](https://github.com/mediafellows/ansible-role-graylog/workflows/Ansible-Test/badge.svg)](https://github.com/mediafellows/ansible-role-graylog/actions?query=workflow%3AAnsible-Test)
 
 # Graylog role
 

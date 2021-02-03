@@ -1,0 +1,82 @@
+---
+
+name: Ansible-Test
+on: [ push, pull_request ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      ANSIBLE_FORCE_COLOR: true
+    steps:
+
+      - name: Checkout code from Github
+        uses: actions/checkout@v2
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: Clean instance from any mongodb package as this Ansible role will install one itself
+        run: |
+          sudo apt-get -y purge mongodb mongodb-server mongodb-server-core mongodb-clients mongodb-org
+          sudo apt-get -y autoremove
+
+      - name: Show APT repos
+        run: ls /etc/apt/sources.list.d/
+
+      - name: Remove uneeded apt repos
+        run: sudo rm /etc/apt/sources.list.d/yarn*
+
+      - name: Apt update
+        run: sudo apt-get update
+
+      - name: Install python apt package
+        run: sudo apt-get install python3-apt
+
+      - name: Install latest Ansible through pip
+        run: pip install ansible
+
+      - name: Output python and ansible versions
+        run: |
+          python --version
+          ansible --version
+
+      - name: Create ansible.cfg with correct roles_path
+        run: printf '[defaults]\nroles_path=../' > ansible.cfg
+
+      - name: Add role dependency (mediafellows.elasticsearch)
+        run: |
+          wget -O mediafellows.elasticsearch.zip https://github.com/mediafellows/ansible-role-elasticsearch/archive/master.zip && unzip mediafellows.elasticsearch.zip
+          rm mediafellows.elasticsearch.zip
+          mv ansible-role-elasticsearch-master tests/roles/mediafellows.elasticsearch
+
+      - name: Output added roles
+        run: ls tests/roles
+
+      - name: Basic Ansible role syntax check
+        run: ansible-playbook -i tests/inventory --syntax-check tests/test.yml
+
+      - name: Real Ansible run
+        run: ansible-playbook -i tests/inventory tests/test.yml
+
+      - name: Second run to check for indempotence (allowing 1 'change' for a status check)
+        run: "ansible-playbook -i tests/inventory tests/test.yml | grep -q 'changed=1.*failed=0' && (echo 'Idempotence test: pass' && exit 0) || (echo 'Idempotence test: fail' && exit 1)"
+
+      - name: Setup serverspec (install gem)
+        run: sudo gem install serverspec
+
+      - name: Wait until Graylog is reachable and show log output to verify
+        run: |
+          sleep 15
+          tail -n 10 /var/log/graylog-server/server.log
+
+      - name: Curl Graylog http endpoint
+        run: curl --silent http://localhost:9000/api/
+
+      - name: Check if Graylog port is open
+        run: ss -tnl
+
+      - name: Run serverspec
+        run: rake spec
