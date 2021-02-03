@@ -23,6 +23,9 @@ jobs:
           sudo apt-get -y purge mongodb mongodb-server mongodb-server-core mongodb-clients mongodb-org
           sudo apt-get -y autoremove
 
+      - name: Show APT repos
+        run: ls /etc/apt/sources.list.d/
+
       - name: Apt update
         run: sudo apt-get update
 
