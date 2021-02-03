@@ -23,6 +23,12 @@ jobs:
           sudo apt-get -y purge mongodb mongodb-server mongodb-server-core mongodb-clients mongodb-org
           sudo apt-get -y autoremove
 
+      - name: Apt update
+        run: sudo apt-get update
+
+      - name: Install python apt package
+        run: sudo apt-get install python3-apt
+
       - name: Install latest Ansible through pip
         run: pip install ansible
 
