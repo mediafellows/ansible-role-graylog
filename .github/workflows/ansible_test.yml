@@ -6,6 +6,8 @@ on: [ push, pull_request ]
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      ANSIBLE_FORCE_COLOR: true:w
     steps:
 
       - name: Checkout code from Github
