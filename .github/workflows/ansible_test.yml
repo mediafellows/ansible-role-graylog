@@ -7,7 +7,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      ANSIBLE_FORCE_COLOR: true:w
+      ANSIBLE_FORCE_COLOR: true
     steps:
 
       - name: Checkout code from Github
