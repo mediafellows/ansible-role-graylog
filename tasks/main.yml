@@ -7,6 +7,11 @@
     dest: /root/graylog-repo.deb
     force: yes
 
+- name: Ensure other repos debs are uninstalled
+  apt:
+    name: '^graylog-.+-repository'
+    state: absent
+
 - name: Install Graylog Repo
   apt:
     deb: /root/graylog-repo.deb
