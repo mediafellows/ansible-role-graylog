@@ -8,9 +8,8 @@
     force: yes
 
 - name: Ensure other repos debs are uninstalled
-  apt:
-    name: '^graylog-.+-repository'
-    state: absent
+  shell:
+    cmd: "apt remove -y '^graylog-.+-repository'"
 
 - name: Install Graylog Repo
   apt:
