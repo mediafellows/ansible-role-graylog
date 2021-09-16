@@ -7,9 +7,10 @@
     dest: /root/graylog-repo.deb
     force: yes
 
-- name: Ensure other repos debs are uninstalled
+- name: Ensure other repos debs are uninstalled (might fail if none are found)
   ansible.builtin.shell:
     cmd: "apt remove -y '^graylog-.+-repository'"
+  ignore_errors: true
 
 - name: Install Graylog Repo
   ansible.builtin.apt:
