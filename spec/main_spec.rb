@@ -31,7 +31,7 @@ describe "Graylog setup" do
   describe file('/etc/graylog/server/server.conf') do
     it { should be_file }
     its(:content) { should include('elasticsearch_hosts = http://127.0.0.1:9200') }
-    its(:content) { should include('web_listen_uri = http://0.0.0.0:9000/') }
+    its(:content) { should include('http_bind_address = 127.0.0.1:9000') }
     its(:content) { should include('plugin_dir = /usr/share/graylog-server/plugin') }
   end
 
