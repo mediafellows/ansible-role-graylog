@@ -18,13 +18,16 @@ graylog_bind_address: '127.0.0.1:{{ graylog_listen_port}}'
 graylog_custom_plugins:
   - 'https://github.com/sportalliance/graylog-plugin-slack-notification/releases/download/1.0.1/graylog-plugin-slack-notification-1.0.1.jar'
 graylog_plugin_dir: /usr/share/graylog-server/plugin
-graylog_major_version: 2.5
+graylog_major_version: 3.1
 
 # How many indeces to keep before deleting them, as we have 1 index per week
 # it equals weeks of log retention:
 graylog_retention_weeks: 6
 
 # Variables being passed on to the Elasticsearch role:
+# NOTE: In newer Ansible versions variables for child roles are ignored here, hence make sure
+# you set them in your play that includes this role directly!
+
 elasticsearch_cluster_name: graylog
 elasticsearch_version: 6.7.1 # make sure version is compatible with graylog_major_version,
 # see list here http://docs.graylog.org/en/2.2/pages/configuration/elasticsearch.html#elasticsearch-versions
