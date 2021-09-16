@@ -2,21 +2,21 @@
 # handlers file for mediafellows.graylog
 
 - name: restart graylog-server
-  service:
+  ansible.builtin.service:
     name: graylog-server
     state: restarted
 
 - name: stop graylog-server
-  service:
+  ansible.builtin.service:
     name: graylog-server
     state: stopped
 
 - name: start graylog-server
-  service:
+  ansible.builtin.service:
     name: graylog-server
     state: stopped
 
 - name: restart mongodb
-  service:
+  ansible.builtin.service:
     name: mongodb
     state: restarted
