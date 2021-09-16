@@ -26,9 +26,6 @@ jobs:
       - name: Show APT repos
         run: ls /etc/apt/sources.list.d/
 
-      - name: Remove uneeded apt repos
-        run: sudo rm /etc/apt/sources.list.d/yarn*
-
       - name: Apt update
         run: sudo apt-get update
 
