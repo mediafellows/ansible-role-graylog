@@ -67,7 +67,7 @@ jobs:
       - name: Wait until Graylog is reachable and show log output to verify
         run: |
           sleep 15
-#          tail -n 10 /var/log/graylog-server/server.log
+          tail -n 10 /var/log/graylog-server/server.log
 
       - name: Curl Graylog http endpoint
         run: curl --silent http://localhost:9000/api/

@@ -6,5 +6,8 @@
     graylog_root_username: admin
     graylog_root_password_sha2: 6ca13d52ca70c883e0f0bb101e425a89e8624de51db2d2392593af6a84118090
     elasticsearch_heap_size: 500m
+    # Somehow the ES version form this roles defaults/main.yml isn't used anymore but the default of the ES role instead,
+    # hence defining it here once more for higher precendence
+    elasticsearch_version: 6.7.1 # make sure version is compatible with graylog_major_version
   roles:
     - ansible-role-graylog
