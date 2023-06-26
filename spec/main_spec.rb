@@ -5,7 +5,7 @@ describe "Graylog setup" do
     it { should be_installed }
   end
 
-  describe package('mongodb') do
+  describe package('mongodb-org') do
     it { should be_installed }
   end
 
@@ -18,7 +18,7 @@ describe "Graylog setup" do
     it { should be_enabled }
   end
 
-  describe service('mongodb') do
+  describe service('mongod') do
     it { should be_running }
     it { should be_enabled }
   end
