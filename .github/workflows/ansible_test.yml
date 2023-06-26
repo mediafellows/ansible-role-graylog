@@ -18,11 +18,6 @@ jobs:
         with:
           python-version: 3.8
 
-      - name: Clean instance from any mongodb package as this Ansible role will install one itself
-        run: |
-          sudo apt-get -y purge mongodb-org mongodb-org-database
-          sudo apt-get -y autoremove
-
       - name: Show APT repos
         run: ls /etc/apt/sources.list.d/
 
