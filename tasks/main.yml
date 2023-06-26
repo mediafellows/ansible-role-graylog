@@ -17,12 +17,31 @@
     deb: /root/graylog-repo.deb
     state: present
 
+- name: Setup MongoDB repo key
+  ansible.builtin.apt_key:
+    url: https://www.mongodb.org/static/pgp/server-6.0.asc
+    state: present
+
+- name: Output Ubuntu release name
+  debug:
+    var: ansible_distribution_release
+
+- name: Setup MongoDB repo
+  ansible.builtin.apt_repository:
+    repo: "deb https://repo.mongodb.org/apt/ubuntu {{ ansible_distribution_release }}/mongodb-org/6.0 multiverse"
+    state: present
+
 - name: Install MongoDB (needed as Graylog settings DB)
   ansible.builtin.apt:
-    name: mongodb
+    name: mongodb-org
     state: latest
     update_cache: yes
   notify: restart mongodb
+
+- name: Enable mongodb server on boot
+  ansible.builtin.service:
+    name: mongod
+    enabled: yes
 
 - name: Install Graylog server
   ansible.builtin.apt:
