@@ -23,7 +23,7 @@
     state: present
 
 - name: Output Ubuntu release name
-  debug:
+  ansible.builtin.debug:
     var: ansible_distribution_release
 
 - name: Setup MongoDB repo
